@@ -3,420 +3,363 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seksi Bimas - Kemenag Kabupaten Indramayu</title>
+    <title>Seksi Bimas Kementerian Agama Kabupaten Indramayu</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
         <div class="nav-container">
             <div class="nav-logo">
                 <i class="fas fa-mosque"></i>
                 <span>Seksi Bimas</span>
             </div>
-            <div class="nav-menu" id="navMenu">
-                <a href="#beranda" class="nav-link active">Beranda</a>
-                <a href="#tentang" class="nav-link">Tentang</a>
-                <a href="#layanan" class="nav-link">Layanan</a>
-                <a href="#struktur" class="nav-link">Struktur Organisasi</a>
-                <a href="#berita" class="nav-link">Berita</a>
-                <a href="#kontak" class="nav-link">Kontak</a>
-            </div>
-            <div class="nav-toggle" id="navToggle">
-                <i class="fas fa-bars"></i>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link active">Beranda</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">Tentang</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#visi-misi" class="nav-link">Visi & Misi</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#struktur" class="nav-link">Struktur Organisasi</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#data" class="nav-link">Data & Statistik</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Kontak</a>
+                </li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="beranda" class="hero">
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="hero-particles"></div>
+        </div>
         <div class="hero-content">
-            <div class="hero-text">
-                <h1>Seksi Bimbingan Masyarakat Islam</h1>
-                <h2>Kementerian Agama Kabupaten Indramayu</h2>
-                <p>Melayani masyarakat dalam bimbingan keagamaan, pemberdayaan umat, dan peningkatan kualitas kehidupan beragama di Kabupaten Indramayu</p>
-                <div class="hero-buttons">
-                    <button class="btn btn-primary">Layanan Kami</button>
-                    <button class="btn btn-outline">Hubungi Kami</button>
+            <div class="container">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="typing-text">Seksi Bimbingan Masyarakat Islam</span>
+                    </h1>
+                    <p class="hero-subtitle">Kementerian Agama Kabupaten Indramayu</p>
+                    <p class="hero-description">
+                        Melayani dengan hati, membangun umat yang berakhlak mulia dan bertakwa kepada Allah SWT
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#about" class="btn btn-primary">Pelajari Lebih Lanjut</a>
+                        <a href="#contact" class="btn btn-secondary">Hubungi Kami</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="image-container">
+                        <img src="kita.png" alt="Tim Seksi Bimas" class="team-photo">
+                        <div class="image-overlay"></div>
+                    </div>
                 </div>
             </div>
-            <div class="hero-image">
-                <div class="hero-card">
-                    <i class="fas fa-mosque"></i>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visi Misi Section -->
+    <section id="visi-misi" class="visi-misi">
+        <div class="visi-misi-background">
+            <div class="floating-shapes"></div>
+        </div>
+        <div class="container">
+            <div class="section-header">
+                <h2>Visi & Misi</h2>
+                <p>Komitmen kami dalam melayani umat dan membangun masyarakat yang religius</p>
+            </div>
+            <div class="visi-misi-content">
+                <div class="visi-card">
+                    <div class="card-header">
+                        <div class="vision-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <h3>Visi</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Menjadi Seksi Bimbingan Masyarakat Islam yang profesional, amanah, dan terdepan dalam memberikan pelayanan keagamaan yang berkualitas untuk mewujudkan masyarakat Kabupaten Indramayu yang religius, sejahtera, dan berakhlak mulia.</p>
+                    </div>
+                </div>
+                
+                <div class="misi-card">
+                    <div class="card-header">
+                        <div class="mission-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <h3>Misi</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="misi-list">
+                            <div class="misi-item">
+                                <div class="misi-number">1</div>
+                                <div class="misi-text">
+                                    <p>Memberikan pelayanan pernikahan yang prima melalui KUA yang tersebar di seluruh kecamatan dengan standar syariah Islam.</p>
+                                </div>
+                            </div>
+                            <div class="misi-item">
+                                <div class="misi-number">2</div>
+                                <div class="misi-text">
+                                    <p>Melakukan pembinaan dan verifikasi masjid serta mushola untuk meningkatkan kualitas sarana ibadah umat Islam.</p>
+                                </div>
+                            </div>
+                            <div class="misi-item">
+                                <div class="misi-number">3</div>
+                                <div class="misi-text">
+                                    <p>Menyelenggarakan penyuluhan agama untuk meningkatkan pemahaman dan pengamalan ajaran Islam di masyarakat.</p>
+                                </div>
+                            </div>
+                            <div class="misi-item">
+                                <div class="misi-number">4</div>
+                                <div class="misi-text">
+                                    <p>Memberikan pelayanan sertifikat arah kiblat yang akurat untuk masjid dan mushola di wilayah Kabupaten Indramayu.</p>
+                                </div>
+                            </div>
+                            <div class="misi-item">
+                                <div class="misi-number">5</div>
+                                <div class="misi-text">
+                                    <p>Membangun sinergi dengan stakeholder untuk mewujudkan masyarakat yang beriman, bertakwa, dan berakhlak mulia.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="tentang" class="about">
+    <section id="about" class="about">
         <div class="container">
             <div class="section-header">
-                <h2>Tentang Seksi Bimas</h2>
-                <p>Mengenal lebih dekat Seksi Bimbingan Masyarakat Islam</p>
+                <h2>Tentang Kami</h2>
+                <p>Dedikasi dalam melayani umat dan membangun masyarakat yang religius</p>
             </div>
             <div class="about-content">
-                <div class="about-text">
-                    <h3>Visi</h3>
-                    <p>Terwujudnya masyarakat muslim yang beriman, bertakwa, berakhlak mulia, dan sejahtera lahir batin di Kabupaten Indramayu.</p>
-                    
-                    <h3>Misi</h3>
-                    <ul>
-                        <li>Meningkatkan kualitas pemahaman dan pengamalan ajaran Islam</li>
-                        <li>Memberdayakan potensi umat Islam dalam pembangunan</li>
-                        <li>Memberikan bimbingan dan pembinaan keagamaan</li>
-                        <li>Mengembangkan ekonomi syariah dan kemitraan umat</li>
-                    </ul>
-                </div>
-                <div class="about-stats">
-                    <div class="stat-item">
-                        <i class="fas fa-landmark"></i>
-                        <h3>31</h3>
-                        <p>Kantor Urusan Agama se Indramayu</p>
+                <div class="about-grid">
+                    <div class="about-card">
+                        <div class="card-icon">
+                            <i class="fas fa-mosque"></i>
+                        </div>
+                        <h3>Pembinaan Masjid</h3>
+                        <p>Melakukan pembinaan dan verifikasi masjid serta mushola di wilayah Kabupaten Indramayu</p>
                     </div>
-                    <div class="stat-item">
-                        <i class="fas fa-users"></i>
-                        <h3>100+</h3>
-                        <p>Penyuluh Agama se Indramayu</p>
+                    <div class="about-card">
+                        <div class="card-icon">
+                            <i class="fas fa-ring"></i>
+                        </div>
+                        <h3>Pelayanan Nikah</h3>
+                        <p>Menyelenggarakan layanan pernikahan melalui KUA yang tersebar di seluruh kecamatan</p>
                     </div>
-                    <div class="stat-item">
-                        <i class="fas fa-mosque"></i>
-                        <h3>4,000+</h3>
-                        <p>Masjid & Mushola</p>
+                    <div class="about-card">
+                        <div class="card-icon">
+                            <i class="fas fa-compass"></i>
+                        </div>
+                        <h3>Sertifikat Kiblat</h3>
+                        <p>Memberikan pelayanan sertifikat arah kiblat untuk masjid dan mushola</p>
                     </div>
-                    <div class="stat-item">
-                        <i class="fas fa-graduation-cap"></i>
-                        <h3>200+</h3>
-                        <p>Program Pendidikan</p>
+                    <div class="about-card">
+                        <div class="card-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Penyuluhan</h3>
+                        <p>Melakukan penyuluhan agama untuk meningkatkan pemahaman masyarakat tentang Islam</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="layanan" class="services">
-        <div class="container">
-            <div class="section-header">
-                <h2>Layanan Kami</h2>
-                <p>Berbagai layanan yang kami sediakan untuk masyarakat</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <i class="fas fa-book-quran"></i>
-                    <h3>Bimbingan Keagamaan</h3>
-                    <p>Pembinaan dan bimbingan dalam pemahaman ajaran Islam yang benar sesuai Al-Quran dan Hadist</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-hands-helping"></i>
-                    <h3>Pemberdayaan Umat</h3>
-                    <p>Program pemberdayaan ekonomi dan sosial masyarakat muslim melalui berbagai kegiatan produktif</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-heart"></i>
-                    <h3>Zakat & Wakaf</h3>
-                    <p>Pengelolaan zakat, infaq, sedekah, dan wakaf untuk kesejahteraan umat Islam</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-calendar-alt"></i>
-                    <h3>Kegiatan Keagamaan</h3>
-                    <p>Koordinasi dan penyelenggaraan berbagai kegiatan keagamaan dan peringatan hari besar Islam</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-chalkboard-teacher"></i>
-                    <h3>Pendidikan Islam</h3>
-                    <p>Pembinaan pendidikan Islam non-formal seperti TPQ, Madrasah Diniyah, dan Pesantren</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-balance-scale"></i>
-                    <h3>Ekonomi Syariah</h3>
-                    <p>Pengembangan dan pembinaan lembaga keuangan syariah dan koperasi syariah</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Organization Structure Section -->
-    <section id="struktur" class="structure">
+    <!-- Struktur Organisasi Section -->
+    <section id="struktur" class="struktur">
         <div class="container">
             <div class="section-header">
                 <h2>Struktur Organisasi</h2>
-                <p>Tim yang melayani masyarakat Kabupaten Indramayu</p>
+                <p>Tim profesional yang berdedikasi untuk melayani masyarakat</p>
             </div>
-            
-            <!-- Leadership -->
-            <div class="leadership">
-                <div class="leader-card">
-                    <div class="leader-photo">
-                        <i class="fas fa-user-tie"></i>
-                    </div>
-                    <h3>Rosidi, S.Ag., M.M.</h3>
-                    <p class="position">Kepala Seksi Bimas</p>
-                    <p class="description">Memimpin dan mengkoordinasikan seluruh kegiatan bimbingan masyarakat Islam di Kabupaten Indramayu</p>
-                </div>
-            </div>
-
-            <!-- Staff Grid -->
-            <div class="staff-grid">
-                <div class="staff-card">
-                    <div class="staff-photo">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <h4>Hj. Amaetin, S.Ag.</h4>
-                    <p class="staff-position">Pemberdayaan KUA dan Bina Keluarga Sakinah</p>
-                    <div class="staff-contact">
-                        <i class="fas fa-phone"></i>
-                        <span>0234-271234</span>
+            <div class="org-chart">
+                <div class="org-level">
+                    <div class="org-card kepala">
+                        <div class="staff-photo">
+                            <img src="https://via.placeholder.com/150x200/4CAF50/white?text=Kepala+Seksi" alt="Kepala Seksi">
+                        </div>
+                        <div class="staff-info">
+                            <h3>Nama Kepala Seksi</h3>
+                            <p>Kepala Seksi Bimas</p>
+                            <span>NIP: 123456789012345678</span>
+                        </div>
                     </div>
                 </div>
-
-                <div class="staff-card">
-                    <div class="staff-photo">
-                        <i class="fas fa-user"></i>
+                <div class="org-connector"></div>
+                <div class="org-level staff-level">
+                    <div class="org-card staff">
+                        <div class="staff-photo">
+                            <img src="https://via.placeholder.com/120x150/2196F3/white?text=Staff+1" alt="Staff 1">
+                        </div>
+                        <div class="staff-info">
+                            <h4>Nama Staff 1</h4>
+                            <p>Staff Administrasi</p>
+                            <span>NIP: 123456789012345678</span>
+                        </div>
                     </div>
-                    <h4>H. Mashudi Abdullah, S.Ag., M.Pd.</h4>
-                    <p class="staff-position">Kepenghuluan dan Pengelola PNBP NR</p>
-                    <div class="staff-contact">
-                        <i class="fas fa-phone"></i>
-                        <span>0234-271235</span>
+                    <div class="org-card staff">
+                        <div class="staff-photo">
+                            <img src="https://via.placeholder.com/120x150/FF9800/white?text=Staff+2" alt="Staff 2">
+                        </div>
+                        <div class="staff-info">
+                            <h4>Nama Staff 2</h4>
+                            <p>Staff Teknis</p>
+                            <span>NIP: 123456789012345678</span>
+                        </div>
                     </div>
-                </div>
-
-                <div class="staff-card">
-                    <div class="staff-photo">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <h4>Hj. Siti Umiroh JS, S.Sos., M.H.</h4>
-                    <p class="staff-position">Seni Budaya Islam, Lintas Sektoral</p>
-                    <div class="staff-contact">
-                        <i class="fas fa-phone"></i>
-                        <span>0234-271236</span>
-                    </div>
-                </div>
-
-                <div class="staff-card">
-                    <div class="staff-photo">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <h4>Rosid, S.H.</h4>
-                    <p class="staff-position">Kepenyuluhan, MTQ, Staff PPK</p>
-                    <div class="staff-contact">
-                        <i class="fas fa-phone"></i>
-                        <span>0234-271237</span>
+                    <div class="org-card staff">
+                        <div class="staff-photo">
+                            <img src="https://via.placeholder.com/120x150/9C27B0/white?text=Staff+3" alt="Staff 3">
+                        </div>
+                        <div class="staff-info">
+                            <h4>Nama Staff 3</h4>
+                            <p>Staff Lapangan</p>
+                            <span>NIP: 123456789012345678</span>
+                        </div>
                     </div>
                 </div>
-
-                <div class="staff-card">
-                    <div class="staff-photo">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <h4>H. Fajar Muslikhin, S.H.</h4>
-                    <p class="staff-position">Kemasjidan, Hisab Rukyat</p>
-                    <div class="staff-contact">
-                        <i class="fas fa-phone"></i>
-                        <span>0234-271238</span>
-                    </div>
-                </div>
-
-                <div class="staff-card">
-                    <div class="staff-photo">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <h4>Purba Perdana Jati, S.E.</h4>
-                    <p class="staff-position">Pengelola Pengadaan Barang dan Jasa</p>
-                    <div class="staff-contact">
-                        <i class="fas fa-phone"></i>
-                        <span>0234-271239</span>
-                    </div>
-                </div>
-
-                <div class="staff-card">
-                    <div class="staff-photo">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <h4>Fithroh Nur Istiqomah, S.Pi.</h4>
-                    <p class="staff-position">Pengawas Jaminan Produk Halal</p>
-                    <div class="staff-contact">
-                        <i class="fas fa-phone"></i>
-                        <span>0234-271239</span>
-                    </div>
-                </div>
-
-                <div class="staff-card">
-                    <div class="staff-photo">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <h4>Imam Ardhi Rosyadi, S.Si.</h4>
-                    <p class="staff-position">Pengawas Jaminan Produk Halal</p>
-                    <div class="staff-contact">
-                        <i class="fas fa-phone"></i>
-                        <span>0234-271239</span>
-                    </div>
-                </div>
-
-                <div class="staff-card">
-                    <div class="staff-photo">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <h4>Metti Yohannah, S.H.</h4>
-                    <p class="staff-position">Penyuluh Agama Kristen</p>
-                    <div class="staff-contact">
-                        <i class="fas fa-phone"></i>
-                        <span>0234-271239</span>
-                    </div>
-                </div>
-
-                <div class="staff-card">
-                    <div class="staff-photo">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <h4>Tarchel Adityas Dwi G, S.Pd.K.</h4>
-                    <p class="staff-position">Penyuluh Agama Kristen</p>
-                    <div class="staff-contact">
-                        <i class="fas fa-phone"></i>
-                        <span>0234-271239</span>
-                    </div>
-                </div>
-
-                <div class="staff-card">
-                    <div class="staff-photo">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <h4>Cornelius Cahya Sandi, S.S.</h4>
-                    <p class="staff-position">Penyuluh Agama Katolik</p>
-                    <div class="staff-contact">
-                        <i class="fas fa-phone"></i>
-                        <span>0234-271239</span>
-                    </div>
-                </div>
-
-                <div class="staff-card">
-                    <div class="staff-photo">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <h4>Yohanes Pandu P.S, S.Pd.</h4>
-                    <p class="staff-position">Penyuluh Agama Katolik</p>
-                    <div class="staff-contact">
-                        <i class="fas fa-phone"></i>
-                        <span>0234-271239</span>
-                    </div>
-                </div>
-
             </div>
         </div>
     </section>
 
-    <!-- News Section -->
-    <section id="berita" class="news">
+    <!-- Data & Statistics Section -->
+    <section id="data" class="data-section">
         <div class="container">
             <div class="section-header">
-                <h2>Berita Terkini</h2>
-                <p>Informasi dan kegiatan terbaru dari Seksi Bimas</p>
+                <h2>Data & Statistik</h2>
+                <p>Informasi terkini tentang layanan dan fasilitas keagamaan</p>
             </div>
-            <div class="news-grid">
-                <div class="news-card">
-                    <div class="news-image">
-                        <i class="fas fa-newspaper"></i>
+            <div class="stats-grid">
+                <div class="stat-card" data-count="25">
+                    <div class="stat-icon">
+                        <i class="fas fa-building"></i>
                     </div>
-                    <div class="news-content">
-                        <span class="news-date">15 Agustus 2025</span>
-                        <h3>Pelatihan Ekonomi Syariah untuk UMKM</h3>
-                        <p>Seksi Bimas mengadakan pelatihan ekonomi syariah untuk para pelaku UMKM di Kabupaten Indramayu...</p>
-                        <a href="#" class="read-more">Baca Selengkapnya</a>
-                    </div>
+                    <div class="stat-number">0</div>
+                    <div class="stat-label">Kantor Urusan Agama (KUA)</div>
                 </div>
-                <div class="news-card">
-                    <div class="news-image">
-                        <i class="fas fa-users"></i>
+                <div class="stat-card" data-count="45">
+                    <div class="stat-icon">
+                        <i class="fas fa-user-tie"></i>
                     </div>
-                    <div class="news-content">
-                        <span class="news-date">10 Agustus 2025</span>
-                        <h3>Safari Ramadan 1446 H</h3>
-                        <p>Kegiatan safari ramadan dilaksanakan di seluruh kecamatan se-Kabupaten Indramayu dengan tema...</p>
-                        <a href="#" class="read-more">Baca Selengkapnya</a>
-                    </div>
+                    <div class="stat-number">0</div>
+                    <div class="stat-label">Penghulu</div>
                 </div>
-                <div class="news-card">
-                    <div class="news-image">
-                        <i class="fas fa-graduation-cap"></i>
+                <div class="stat-card" data-count="38">
+                    <div class="stat-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
                     </div>
-                    <div class="news-content">
-                        <span class="news-date">5 Agustus 2025</span>
-                        <h3>Pembinaan Guru TPQ se-Indramayu</h3>
-                        <p>Program pembinaan untuk meningkatkan kualitas pengajaran Al-Quran di Taman Pendidikan Al-Quran...</p>
-                        <a href="#" class="read-more">Baca Selengkapnya</a>
+                    <div class="stat-number">0</div>
+                    <div class="stat-label">Penyuluh Agama</div>
+                </div>
+                <div class="stat-card" data-count="1250">
+                    <div class="stat-icon">
+                        <i class="fas fa-heart"></i>
                     </div>
+                    <div class="stat-number">0</div>
+                    <div class="stat-label">Peristiwa Pernikahan (2024)</div>
+                </div>
+                <div class="stat-card" data-count="180">
+                    <div class="stat-icon">
+                        <i class="fas fa-mosque"></i>
+                    </div>
+                    <div class="stat-number">0</div>
+                    <div class="stat-label">Masjid Terverifikasi</div>
+                </div>
+                <div class="stat-card" data-count="320">
+                    <div class="stat-icon">
+                        <i class="fas fa-kaaba"></i>
+                    </div>
+                    <div class="stat-number">0</div>
+                    <div class="stat-label">Mushola Terverifikasi</div>
+                </div>
+                <div class="stat-card" data-count="95">
+                    <div class="stat-icon">
+                        <i class="fas fa-compass"></i>
+                    </div>
+                    <div class="stat-number">0</div>
+                    <div class="stat-label">Sertifikat Arah Kiblat</div>
+                </div>
+                <div class="stat-card" data-count="2500">
+                    <div class="stat-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <div class="stat-number">0</div>
+                    <div class="stat-label">Total Pelayanan (2024)</div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="kontak" class="contact">
+    <section id="contact" class="contact">
         <div class="container">
             <div class="section-header">
                 <h2>Hubungi Kami</h2>
-                <p>Jangan ragu untuk menghubungi kami untuk informasi lebih lanjut</p>
+                <p>Kami siap melayani dan membantu kebutuhan keagamaan Anda</p>
             </div>
             <div class="contact-content">
                 <div class="contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h4>Alamat</h4>
-                            <a href="https://maps.app.goo.gl/XbodKwLjWoL7Be3U8" target="_blank" rel="noopener noreferrer">Jl. Olahraga No.3, Karanganyar, Kec. Indramayu,<br>Kabupaten Indramayu, Jawa Barat<br>45213</a>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Alamat</h3>
+                            <p>Jl. Jenderal Sudirman No. 123<br>Indramayu, Jawa Barat 45213</p>
                         </div>
                     </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <h4>Telepon</h4>
-                            <p>(0234) 272033</p>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Telepon</h3>
+                            <p>(0234) 271234<br>0812-3456-7890</p>
                         </div>
                     </div>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h4>Email</h4>
-                            <p>bimas@kemenagindramayu.go.id<br>info@kemenagindramayu.go.id</p>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Email</h3>
+                            <p>bimas@kemenagindramayu.go.id<br>info@bimasindramayu.id</p>
                         </div>
                     </div>
-                    <div class="contact-item">
-                        <i class="fas fa-clock"></i>
-                        <div>
-                            <h4>Jam Kerja</h4>
-                            <p>Senin - Kamis: 08.00 - 16.00<br>Jum'at: 08.00 - 16.30</p>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Jam Operasional</h3>
+                            <p>Senin - Jumat: 07:30 - 16:00<br>Sabtu: 07:30 - 12:00</p>
                         </div>
                     </div>
-                </div>
-                <div class="contact-form">
-                    <form>
-                        <div class="form-group">
-                            <input type="text" placeholder="Nama Lengkap" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" placeholder="Email" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="tel" placeholder="Nomor Telepon">
-                        </div>
-                        <div class="form-group">
-                            <select id="kategori" title="kategori">
-                                <option>Pilih Layanan</option>
-                                <option>Bimbingan Keagamaan</option>
-                                <option>Pemberdayaan Umat</option>
-                                <option>Zakat & Wakaf</option>
-                                <option>Ekonomi Syariah</option>
-                                <option>Lainnya</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <textarea placeholder="Pesan Anda" rows="5"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Kirim Pesan</button>
-                    </form>
                 </div>
             </div>
         </div>
@@ -429,46 +372,39 @@
                 <div class="footer-section">
                     <div class="footer-logo">
                         <i class="fas fa-mosque"></i>
-                        <span>Seksi Bimas</span>
+                        <span>Seksi Bimas Kemenag Indramayu</span>
                     </div>
-                    <p>Melayani masyarakat dalam bimbingan keagamaan dan pemberdayaan umat Islam di Kabupaten Indramayu</p>
+                    <p>Melayani dengan hati, membangun umat yang berakhlak mulia dan bertakwa kepada Allah SWT.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Link Terkait</h3>
+                    <ul>
+                        <li><a href="https://kemenag.go.id" target="_blank" rel="noopener">Kementerian Agama RI</a></li>
+                        <li><a href="#" target="_blank">Kemenag Jawa Barat</a></li>
+                        <li><a href="#" target="_blank">SIMKAH Online</a></li>
+                        <li><a href="#" target="_blank">SIMAS</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Ikuti Kami</h3>
                     <div class="social-links">
-                        <a href="#" aria-label="Beranda"><i class="fab fa-facebook"></i></a>
-                        <a href="#" aria-label="Beranda"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="Beranda"><i class="fab fa-youtube"></i></a>
-                        <a href="#" aria-label="Beranda"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="social-link" title="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link" title="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-link" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                     </div>
-                </div>
-                <div class="footer-section">
-                    <h4>Layanan</h4>
-                    <ul>
-                        <li><a href="#">Bimbingan Keagamaan</a></li>
-                        <li><a href="#">Pemberdayaan Umat</a></li>
-                        <li><a href="#">Zakat & Wakaf</a></li>
-                        <li><a href="#">Ekonomi Syariah</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Informasi</h4>
-                    <ul>
-                        <li><a href="#">Tentang Kami</a></li>
-                        <li><a href="#">Struktur Organisasi</a></li>
-                        <li><a href="#">Berita</a></li>
-                        <li><a href="#">Kontak</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Kontak</h4>
-                    <p><i class="fas fa-map-marker-alt"></i> Jl. Olahraga No.3, Karanganyar, Kec. Indramayu, Kabupaten Indramayu,</p>
-                    <p><i class="fas fa-phone"></i> (0234) 272033</p>
-                    <p><i class="fas fa-envelope"></i> bimas@kemenagindramayu.go.id</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Seksi Bimas Kementerian Agama Kabupaten Indramayu. All rights reserved.</p>
+                <p>&copy; 2024 Seksi Bimas Kementerian Agama Kabupaten Indramayu. All rights reserved.</p>
             </div>
         </div>
     </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" title="Kembali ke atas">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <script src="script.js"></script>
 </body>
