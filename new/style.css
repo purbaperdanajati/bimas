@@ -208,6 +208,12 @@ body {
     transform: translateY(-2px);
 }
 
+.hero-image img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
 .hero-image {
     display: flex;
     justify-content: center;
@@ -385,6 +391,13 @@ body {
     gap: 50px;
     margin-bottom: 30px;
 }
+.org-level {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    justify-items: center;
+    align-items: stretch;
+}
 
 .org-card {
     background: white;
@@ -392,8 +405,13 @@ body {
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     text-align: center;
-    min-width: 250px;
+    min-width: 0;
+    width: 100%;
+    max-width: 280px;
     transition: all 0.3s ease;
+    overflow: hidden;
+    word-break: break-word;
+    justify-self: center; /* Center all cards horizontally */
 }
 
 .org-card:hover {
@@ -404,6 +422,11 @@ body {
 .org-card.leader {
     background: linear-gradient(135deg, #007943, #00a855);
     color: white;
+    margin-left: auto;
+    margin-right: auto;
+    grid-column: 1 / -1; /* Leader spans all columns */
+    justify-self: center; /* Center leader card */
+    max-width: 320px;
 }
 
 .org-photo {
@@ -451,77 +474,6 @@ body {
 .org-card.leader p {
     color: rgba(255, 255, 255, 0.9);
 }
-
-.staff-section {
-    margin-top: 60px;
-}
-
-.staff-section h3 {
-    font-size: 2rem;
-    font-weight: 600;
-    text-align: center;
-    margin-bottom: 40px;
-    color: #333;
-}
-
-.staff-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-.staff-card {
-    background: white;
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    transition: all 0.3s ease;
-}
-
-.staff-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-}
-
-.staff-photo {
-    width: 80px;
-    height: 80px;
-    background: #f0f0f0;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-}
-
-.staff-photo i {
-    font-size: 2rem;
-    color: #ccc;
-}
-
-.staff-info h4 {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: #333;
-    margin-bottom: 5px;
-}
-
-.staff-info p {
-    color: #666;
-    margin-bottom: 10px;
-}
-
-.staff-contact {
-    color: #007943;
-    font-size: 0.9rem;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
 /* Contact Section */
 .contact-section {
     background: linear-gradient(135deg, #007943 0%, #00a855 100%);
@@ -529,20 +481,28 @@ body {
 }
 
 .contact-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    display: flex;
+    flex-wrap: nowrap;
     gap: 30px;
+    justify-content: center;
+    align-items: stretch;
 }
 
 .contact-card {
     background: rgba(255, 255, 255, 0.1);
     padding: 40px 30px;
     border-radius: 20px;
-    text-align: center;
+    text-align: left; /* Change to left align */
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     transition: all 0.3s ease;
+    flex: 1 1 0;
+    min-width: 0;
+    max-width: 320px;
+    overflow: hidden;
+    word-break: normal; /* Prevent breaking every word */
+    overflow-wrap: anywhere; /* Break only if needed */
 }
 
 .contact-card:hover {
@@ -575,6 +535,10 @@ body {
 .contact-card p {
     opacity: 0.9;
     line-height: 1.6;
+    word-break: normal; /* Prevent breaking every word */
+    overflow-wrap: anywhere;
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
 }
 
 /* Footer */
