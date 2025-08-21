@@ -440,6 +440,20 @@ body {
     margin: 0 auto 20px;
 }
 
+.org-photo-img-rounded {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.org-photo-img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
 .org-card.leader .org-photo {
     background: rgba(255, 255, 255, 0.2);
 }
