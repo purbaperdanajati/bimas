@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validasi Umur MTQ 55 Kabupaten Indramayu</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card h2::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 25px;
+            background: #667eea;
+            border-radius: 2px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="date"]:focus,
+        select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .type-selector {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .type-btn {
+            flex: 1;
+            padding: 10px;
+            border: 2px solid #e0e0e0;
+            background: white;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        .type-btn.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+
+        .member-group {
+            background: #f9f9f9;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .member-group h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 0.95em;
+        }
+
+        .member-inputs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .member-inputs input {
+            flex: 1;
+            padding: 8px;
+            font-size: 0.9em;
+        }
+
+        .remove-member-btn {
+            padding: 6px 12px;
+            background: #dc3545;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.85em;
+        }
+
+        .remove-member-btn:hover {
+            background: #c82333;
+        }
+
+        .add-member-btn {
+            width: 100%;
+            padding: 8px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .add-member-btn:hover {
+            background: #218838;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        .file-input-label {
+            display: block;
+            padding: 12px;
+            background: #f5f5f5;
+            border: 2px dashed #667eea;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            color: #667eea;
+        }
+
+        .file-input-label:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .result.success {
+            background: #d4edda;
+            border: 2px solid #28a745;
+            color: #155724;
+            display: block;
+        }
+
+        .result.error {
+            background: #f8d7da;
+            border: 2px solid #dc3545;
+            color: #721c24;
+            display: block;
+        }
+
+        .result.warning {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            color: #856404;
+            display: block;
+        }
+
+        .result h3 {
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .result-details {
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+
+        .member-result {
+            background: rgba(255,255,255,0.5);
+            padding: 8px;
+            margin: 5px 0;
+            border-radius: 5px;
+            font-size: 0.9em;
+        }
+
+        .table-container {
+            margin-top: 20px;
+            max-height: 500px;
+            overflow-y: auto;
+            border-radius: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        th {
+            background: #667eea;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 0.9em;
+        }
+
+        tr:hover {
+            background: #f5f5f5;
+        }
+
+        .status {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            display: inline-block;
+            font-size: 0.85em;
+        }
+
+        .status.valid {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status.invalid {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .status.warning {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .cabang-list {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            max-height: 300px;
+            overflow-y: auto;
+            font-size: 0.9em;
+            line-height: 1.8;
+        }
+
+        .cabang-item {
+            padding: 8px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .cabang-item:last-child {
+            border-bottom: none;
+        }
+
+        .cabang-item strong {
+            color: #667eea;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .tab-btn {
+            padding: 10px 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #666;
+            font-weight: 600;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+            margin: 0;
+            width: auto;
+        }
+
+        .tab-btn.active {
+            color: #667eea;
+            border-bottom-color: #667eea;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .tabs {
+                flex-direction: column;
+            }
+
+            .member-inputs {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏆 Validasi Umur MTQ 55</h1>
+            <p>Kabupaten Indramayu - Per 1 November 2025</p>
+        </header>
+
+        <div class="content">
+            <div class="card">
+                <h2>Input Manual</h2>
+                
+                <div class="type-selector">
+                    <button class="type-btn active" onclick="switchType('individual')">Individu</button>
+                    <button class="type-btn" onclick="switchType('regu')">Regu (Beregu)</button>
+                </div>
+
+                <!-- INDIVIDU -->
+                <div id="individual-form" class="type-form active">
+                    <div class="form-group">
+                        <label for="namaIndividu">Nama Peserta</label>
+                        <input type="text" id="namaIndividu" placeholder="Masukkan nama peserta">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tanggalLahirIndividu">Tanggal Lahir</label>
+                        <input type="date" id="tanggalLahirIndividu">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cabangIndividu">Cabang/Golongan</label>
+                        <select id="cabangIndividu">
+                            <option value="">-- Pilih Cabang --</option>
+                            <optgroup label="A. Seni Baca Al-Qur'an">
+                                <option value="tartil">1. Tartil Al-Qur'an (12 tahun 11 bulan 29 hari)</option>
+                                <option value="tilawah_anak">2. Tilawah Anak-anak (14 tahun 11 bulan 29 hari)</option>
+                                <option value="tilawah_remaja">3. Tilawah Remaja (24 tahun 11 bulan 29 hari)</option>
+                                <option value="tilawah_dewasa">4. Tilawah Dewasa (40 tahun 11 bulan 29 hari)</option>
+                            </optgroup>
+                            <optgroup label="B. Qira'at Al-Qur'an">
+                                <option value="qiraat_dewasa">1. Qira'at Mujawwad Dewasa (40 tahun 11 bulan 29 hari)</option>
+                            </optgroup>
+                            <optgroup label="C. Hafalan Al-Qur'an">
+                                <option value="hafalan_1juz">1. 1 Juz dan Tilawah (15 tahun 11 bulan 29 hari)</option>
+                                <option value="hafalan_5juz">2. 5 Juz dan Tilawah (20 tahun 11 bulan 29 hari)</option>
+                                <option value="hafalan_10juz">3. 10 Juz (20 tahun 11 bulan 29 hari)</option>
+                                <option value="hafalan_20juz">4. 20 Juz (22 tahun 11 bulan 29 hari)</option>
+                                <option value="hafalan_30juz">5. 30 Juz (22 tahun 11 bulan 29 hari)</option>
+                            </optgroup>
+                            <optgroup label="D. Tafsir Al-Qur'an">
+                                <option value="tafsir_arab">1. Tafsir Bahasa Arab (22 tahun 11 bulan 29 hari)</option>
+                                <option value="tafsir_indonesia">2. Tafsir Bahasa Indonesia (34 tahun 11 bulan 29 hari)</option>
+                                <option value="tafsir_inggris">3. Tafsir Bahasa Inggris (34 tahun 11 bulan 29 hari)</option>
+                            </optgroup>
+                            <optgroup label="G. Seni Kaligrafi Al-Qur'an">
+                                <option value="kaligrafi">Seni Kaligrafi (34 tahun 11 bulan 29 hari)</option>
+                            </optgroup>
+                            <optgroup label="H. Karya Tulis Ilmiah">
+                                <option value="ktiq">Karya Tulis Ilmiah (24 tahun 11 bulan 29 hari)</option>
+                            </optgroup>
+                        </select>
+                    </div>
+
+                    <button onclick="validateIndividual()">Validasi</button>
+
+                    <div id="resultIndividual" class="result">
+                        <h3 id="resultTitleIndividual"></h3>
+                        <div id="resultDetailsIndividual" class="result-details"></div>
+                    </div>
+                </div>
+
+                <!-- REGU -->
+                <div id="regu-form" class="type-form">
+                    <div class="form-group">
+                        <label for="namaRegu">Nama Regu</label>
+                        <input type="text" id="namaRegu" placeholder="Masukkan nama regu">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cabangRegu">Cabang/Golongan</label>
+                        <select id="cabangRegu" onchange="updateMemberLimit()">
+                            <option value="">-- Pilih Cabang Regu --</option>
+                            <optgroup label="E. Fahm Al-Qur'an (maks 3 orang)">
+                                <option value="fahm">Fahm Al-Qur'an (18 tahun 11 bulan 29 hari)</option>
+                            </optgroup>
+                            <optgroup label="F. Syarh Al-Qur'an (maks 3 orang)">
+                                <option value="syarh">Syarh Al-Qur'an (18 tahun 11 bulan 29 hari)</option>
+                            </optgroup>
+                        </select>
+                    </div>
+
+                    <div id="membersList">
+                        <div class="member-group">
+                            <h4>👤 Anggota 1</h4>
+                            <div class="member-inputs">
+                                <input type="text" class="member-nama" placeholder="Nama">
+                                <input type="date" class="member-lahir">
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="add-member-btn" onclick="addMember()">+ Tambah Anggota</button>
+
+                    <button onclick="validateRegu()">Validasi Regu</button>
+
+                    <div id="resultRegu" class="result">
+                        <h3 id="resultTitleRegu"></h3>
+                        <div id="resultDetailsRegu" class="result-details"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Import Excel</h2>
+
+                <div class="form-group">
+                    <label for="excelFile" class="file-input-label">
+                        📁 Pilih File Excel (CSV/XLSX)
+                    </label>
+                    <input type="file" id="excelFile" accept=".xlsx,.xls,.csv">
+                </div>
+
+                <p style="font-size: 0.85em; color: #666; margin-top: 10px;">
+                    Format Individu: Nama, Tanggal Lahir (YYYY-MM-DD), Cabang<br>
+                    Format Regu: Nama Regu, Cabang, Nama Anggota 1, Tgl Lahir 1, Nama Anggota 2, Tgl Lahir 2, ...
+                </p>
+
+                <div id="resultExcel" class="result">
+                    <h3>Hasil Validasi Excel</h3>
+                    <div id="resultExcelDetails" class="result-details"></div>
+                </div>
+
+                <div id="tableContainer" class="table-container" style="display: none;">
+                    <table id="resultTable">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama</th>
+                                <th>Anggota</th>
+                                <th>Tanggal Lahir</th>
+                                <th>Umur</th>
+                                <th>Cabang</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="tabs">
+                <button class="tab-btn active" onclick="switchTab('criteria')">Kriteria Umur</button>
+                <button class="tab-btn" onclick="switchTab('info')">Informasi</button>
+            </div>
+
+            <div id="criteria" class="tab-content active">
+                <div class="cabang-list">
+                    <div class="cabang-item">
+                        <strong>A. Seni Baca Al-Qur'an:</strong><br>
+                        1. Tartil: 12-11-29 | 2. Tilawah Anak: 14-11-29 | 3. Tilawah Remaja: 24-11-29 | 4. Tilawah Dewasa: 40-11-29
+                    </div>
+                    <div class="cabang-item">
+                        <strong>B. Qira'at Al-Qur'an:</strong><br>
+                        1. Qira'at Mujawwad Dewasa: 40-11-29
+                    </div>
+                    <div class="cabang-item">
+                        <strong>C. Hafalan Al-Qur'an:</strong><br>
+                        1. 1 Juz & Tilawah: 15-11-29 | 2. 5 Juz & Tilawah: 20-11-29 | 3. 10 Juz: 20-11-29 | 4. 20 Juz: 22-11-29 | 5. 30 Juz: 22-11-29
+                    </div>
+                    <div class="cabang-item">
+                        <strong>D. Tafsir Al-Qur'an:</strong><br>
+                        1. Bahasa Arab: 22-11-29 | 2. Bahasa Indonesia: 34-11-29 | 3. Bahasa Inggris: 34-11-29
+                    </div>
+                    <div class="cabang-item">
+                        <strong>E. Fahm Al-Qur'an (REGU):</strong><br>
+                        Maksimal: 18-11-29 (3 orang per regu)
+                    </div>
+                    <div class="cabang-item">
+                        <strong>F. Syarh Al-Qur'an (REGU):</strong><br>
+                        Maksimal: 18-11-29 (3 orang per regu)
+                    </div>
+                    <div class="cabang-item">
+                        <strong>G. Seni Kaligrafi:</strong><br>
+                        Maksimal: 34-11-29 (untuk semua golongan)
+                    </div>
+                    <div class="cabang-item">
+                        <strong>H. Karya Tulis Ilmiah:</strong><br>
+                        Maksimal: 24-11-29
+                    </div>
+                </div>
+            </div>
+
+            <div id="info" class="tab-content">
+                <div class="cabang-list">
+                    <div class="cabang-item">
+                        <strong>📌 Catatan Penting:</strong><br>
+                        • Tanggal hitung per 1 November 2025<br>
+                        • Format: Tahun-Bulan-Hari (contoh: 22-11-29 = maksimal 22 tahun 11 bulan 29 hari)<br>
+                        • Peserta harus memenuhi batas usia maksimal pada tanggal tersebut<br>
+                        • Untuk regu, SEMUA anggota harus memenuhi kriteria umur
+                    </div>
+                    <div class="cabang-item">
+                        <strong>💾 Cara Import Excel:</strong><br>
+                        1. Siapkan file dengan kolom sesuai format (Individu atau Regu)<br>
+                        2. Gunakan nama cabang sesuai pilihan di dropdown<br>
+                        3. Upload file untuk validasi massal
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const criteria = {
+            tartil: '12-11-29',
+            tilawah_anak: '14-11-29',
+            tilawah_remaja: '24-11-29',
+            tilawah_dewasa: '40-11-29',
+            qiraat_dewasa: '40-11-29',
+            hafalan_1juz: '15-11-29',
+            hafalan_5juz: '20-11-29',
+            hafalan_10juz: '20-11-29',
+            hafalan_20juz: '22-11-29',
+            hafalan_30juz: '22-11-29',
+            tafsir_arab: '22-11-29',
+            tafsir_indonesia: '34-11-29',
+            tafsir_inggris: '34-11-29',
+            fahm: '18-11-29',
+            syarh: '18-11-29',
+            kaligrafi: '34-11-29',
+            ktiq: '24-11-29'
+        };
+
+        const referenceDate = new Date(2025, 10, 1); // 1 November 2025
+
+        function calculateAge(birthDate) {
+            let years = referenceDate.getFullYear() - birthDate.getFullYear();
+            let months = referenceDate.getMonth() - birthDate.getMonth();
+            let days = referenceDate.getDate() - birthDate.getDate();
+
+            // Handle hari negatif
+            if (days < 0) {
+                months--;
+                const prevMonth = new Date(referenceDate.getFullYear(), referenceDate.getMonth(), 0);
+                days = prevMonth.getDate() + days;
+            }
+
+            // Handle bulan negatif
+            if (months < 0) {
+                years--;
+                months = 12 + months;
+            }
+
+            return { years, months, days };
+        }
+
+        function isAgeValid(birthDate, maxAgeStr) {
+            const usia = calculateAge(birthDate);
+            const ageParts = maxAgeStr.split('-').map(Number);
+            
+            if (usia.years > ageParts[0]) return false;
+            if (usia.years === ageParts[0]) {
+                if (usia.months > ageParts[1]) return false;
+                if (usia.months === ageParts[1]) {
+                    if (usia.days > ageParts[2]) return false;
+                }
+            }
+            return true;
+        }
+
+        function formatDate(date) {
+            return date.toLocaleDateString('id-ID', { year: 'numeric', month: '2-digit', day: '2-digit' });
+        }
+
+        function switchType(type) {
+            document.querySelectorAll('.type-form').forEach(f => f.classList.remove('active'));
+            document.querySelectorAll('.type-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(type + '-form').classList.add('active');
+            event.target.classList.add('active');
+            
+            // Reset hasil
+            document.getElementById('resultIndividual').className = 'result';
+            document.getElementById('resultRegu').className = 'result';
+        }
+
+        function validateIndividual() {
+            const nama = document.getElementById('namaIndividu').value;
+            const tanggalLahir = new Date(document.getElementById('tanggalLahirIndividu').value);
+            const cabang = document.getElementById('cabangIndividu').value;
+            const resultDiv = document.getElementById('resultIndividual');
+            const titleDiv = document.getElementById('resultTitleIndividual');
+            const detailsDiv = document.getElementById('resultDetailsIndividual');
+
+            if (!nama || !document.getElementById('tanggalLahirIndividu').value || !cabang) {
+                resultDiv.className = 'result error';
+                titleDiv.textContent = '⚠️ Data Tidak Lengkap';
+                detailsDiv.innerHTML = 'Silakan isi semua data terlebih dahulu';
+                return;
+            }
+
+            const usia = calculateAge(tanggalLahir);
+            const isValid = isAgeValid(tanggalLahir, criteria[cabang]);
+            const cabangName = document.getElementById('cabangIndividu').options[document.getElementById('cabangIndividu').selectedIndex].text;
+
+            resultDiv.className = isValid ? 'result success' : 'result error';
+            titleDiv.textContent = isValid ? '✅ LOLOS' : '❌ TIDAK LOLOS';
+            detailsDiv.innerHTML = `
+                <strong>${nama}</strong><br>
+                Tanggal Lahir: ${formatDate(tanggalLahir)}<br>
+                Umur (per 1 Nov 2025): ${usia.years} tahun ${usia.months} bulan ${usia.days} hari<br>
+                Cabang: ${cabangName}<br>
+                Batas Maksimal: ${criteria[cabang]}<br>
+                <strong style="margin-top: 10px; display: block;">
+                    ${isValid ? 'Peserta memenuhi kriteria usia untuk mengikuti lomba' : 'Peserta melebihi batas maksimal usia'}
+                </strong>
+            `;
+        }
+
+        function addMember() {
+            const membersList = document.getElementById('membersList');
+            const cabang = document.getElementById('cabangRegu').value;
+            
+            // Cek maksimal anggota berdasarkan cabang
+            const maxMembers = (cabang === 'fahm' || cabang === 'syarh') ? 3 : 1;
+            const currentMembers = membersList.children.length;
+
+            if (currentMembers >= maxMembers) {
+                alert(`Maksimal ${maxMembers} anggota untuk cabang ini`);
+                return;
+            }
+
+            if (!cabang) {
+                alert('Silakan pilih cabang terlebih dahulu');
+                return;
+            }
+
+            const count = currentMembers + 1;
+            const html = `
+                <div class="member-group">
+                    <h4>👤 Anggota ${count}</h4>
+                    <div class="member-inputs">
+                        <input type="text" class="member-nama" placeholder="Nama">
+                        <input type="date" class="member-lahir">
+                        <button class="remove-member-btn" onclick="removeMember(this)">Hapus</button>
+                    </div>
+                </div>
+            `;
+            membersList.insertAdjacentHTML('beforeend', html);
+        }
+
+        function removeMember(btn) {
+            btn.closest('.member-group').remove();
+        }
+
+        function updateMemberLimit() {
+            const cabang = document.getElementById('cabangRegu').value;
+            const membersList = document.getElementById('membersList');
+            
+            // Reset member ke 1 ketika ganti cabang
+            membersList.innerHTML = `
+                <div class="member-group">
+                    <h4>👤 Anggota 1</h4>
+                    <div class="member-inputs">
+                        <input type="text" class="member-nama" placeholder="Nama">
+                        <input type="date" class="member-lahir">
+                    </div>
+                </div>
+            `;
+        }
+
+        function validateRegu() {
+            const namaRegu = document.getElementById('namaRegu').value;
+            const cabang = document.getElementById('cabangRegu').value;
+            const resultDiv = document.getElementById('resultRegu');
+            const titleDiv = document.getElementById('resultTitleRegu');
+            const detailsDiv = document.getElementById('resultDetailsRegu');
+
+            if (!namaRegu || !cabang) {
+                resultDiv.className = 'result error';
+                titleDiv.textContent = '⚠️ Data Tidak Lengkap';
+                detailsDiv.innerHTML = 'Silakan isi nama regu dan cabang';
+                return;
+            }
+
+            const membersList = document.getElementById('membersList');
+            const members = [];
+            membersList.querySelectorAll('.member-group').forEach(group => {
+                const nama = group.querySelector('.member-nama').value;
+                const tanggal = group.querySelector('.member-lahir').value;
+                if (nama && tanggal) {
+                    members.push({ nama, tanggal: new Date(tanggal) });
+                }
+            });
+
+            if (members.length === 0) {
+                resultDiv.className = 'result error';
+                titleDiv.textContent = '⚠️ Anggota Tidak Lengkap';
+                detailsDiv.innerHTML = 'Silakan masukkan minimal 1 anggota regu dengan nama dan tanggal lahir';
+                return;
+            }
+
+            const cabangName = document.getElementById('cabangRegu').options[document.getElementById('cabangRegu').selectedIndex].text;
+            const maxAge = criteria[cabang];
+            let allValid = true;
+            let memberDetails = '';
+
+            members.forEach((member, idx) => {
+                const usia = calculateAge(member.tanggal);
+                const isValid = isAgeValid(member.tanggal, maxAge);
+                allValid = allValid && isValid;
+                memberDetails += `
+                    <div class="member-result">
+                        <strong>${idx + 1}. ${member.nama}</strong><br>
+                        Tgl Lahir: ${formatDate(member.tanggal)} | Umur: ${usia.years}-${String(usia.months).padStart(2, '0')}-${String(usia.days).padStart(2, '0')} | 
+                        <span style="font-weight: 600; color: ${isValid ? '#155724' : '#721c24'}">${isValid ? '✓ LOLOS' : '✗ TIDAK'}</span>
+                    </div>
+                `;
+            });
+
+            resultDiv.className = allValid ? 'result success' : 'result error';
+            titleDiv.textContent = allValid ? '✅ REGU LOLOS' : '❌ REGU TIDAK LOLOS';
+            detailsDiv.innerHTML = `
+                <strong>${namaRegu}</strong> (${members.length} orang)<br>
+                Cabang: ${cabangName}<br>
+                Batas Maksimal: ${maxAge}<br>
+                <strong style="margin-top: 10px; display: block;">Anggota Regu:</strong>
+                ${memberDetails}
+                <strong style="margin-top: 10px; display: block; color: ${allValid ? '#155724' : '#721c24'}">
+                    ${allValid ? 'Semua anggota memenuhi kriteria usia' : 'Ada anggota yang tidak memenuhi kriteria usia'}
+                </strong>
+            `;
+        }
+
+        document.getElementById('excelFile').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                try {
+                    let data;
+                    if (file.name.endsWith('.csv')) {
+                        const csv = event.target.result;
+                        data = Papa.parse(csv, { skipEmptyLines: true });
+                    } else {
+                        const workbook = XLSX.read(event.target.result, { type: 'array' });
+                        const worksheet = workbook.Sheets[workbook.SheetNames[0]];
+                        data = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
+                    }
+
+                    processExcelData(data);
+                } catch (error) {
+                    alert('Error membaca file: ' + error.message);
+                }
+            };
+
+            if (file.name.endsWith('.csv')) {
+                reader.readAsText(file);
+            } else {
+                reader.readAsArrayBuffer(file);
+            }
+        });
+
+        function processExcelData(data) {
+            if (!data || data.length < 2) {
+                alert('File Excel minimal harus memiliki header dan 1 baris data');
+                return;
+            }
+
+            const hasil = [];
+            let no = 1;
+
+            for (let i = 1; i < data.length; i++) {
+                const row = data[i];
+                if (!row[0] || !row[1]) continue;
+
+                const nama = row[0].toString().trim();
+                const cabangRaw = row[1].toString().trim();
+                
+                // Cek apakah regu atau individu berdasarkan jumlah kolom
+                const isRegu = row.length > 4 && row[3] && row[4];
+
+                if (isRegu) {
+                    // Format Regu: Nama Regu, Cabang, Nama1, Tgl1, Nama2, Tgl2, ...
+                    const cabang = Object.keys(criteria).find(k => 
+                        cabangRaw.toLowerCase().includes(k.replace(/_/g, ' ')) ||
+                        cabangRaw.toLowerCase().includes(k)
+                    );
+
+                    if (!cabang || (cabang !== 'fahm' && cabang !== 'syarh')) continue;
+
+                    const members = [];
+                    for (let j = 2; j < row.length; j += 2) {
+                        if (row[j] && row[j+1]) {
+                            members.push({
+                                nama: row[j].toString().trim(),
+                                tanggal: new Date(row[j+1])
+                            });
+                        }
+                    }
+
+                    if (members.length === 0) continue;
+
+                    const maxAge = criteria[cabang];
+                    let allValid = true;
+                    let usiaTertua = { years: 0, months: 0, days: 0 };
+
+                    members.forEach(member => {
+                        const usia = calculateAge(member.tanggal);
+                        const isValid = isAgeValid(member.tanggal, maxAge);
+                        allValid = allValid && isValid;
+                        
+                        if (usia.years > usiaTertua.years || 
+                            (usia.years === usiaTertua.years && usia.months > usiaTertua.months)) {
+                            usiaTertua = usia;
+                        }
+                    });
+
+                    hasil.push({
+                        no: no++,
+                        nama: nama,
+                        anggota: members.map(m => m.nama).join(', '),
+                        tanggalLahir: members.map(m => formatDate(m.tanggal)).join(' | '),
+                        umur: `${usiaTertua.years}-${String(usiaTertua.months).padStart(2, '0')}-${String(usiaTertua.days).padStart(2, '0')}`,
+                        cabang: cabangRaw,
+                        valid: allValid,
+                        type: 'regu',
+                        memberCount: members.length
+                    });
+                } else {
+                    // Format Individu: Nama, Tgl Lahir, Cabang
+                    const tanggalLahir = new Date(row[1]);
+                    const cabang = Object.keys(criteria).find(k => 
+                        row[2].toString().toLowerCase().includes(k.replace(/_/g, ' ')) ||
+                        row[2].toString().toLowerCase().includes(k)
+                    );
+
+                    if (!cabang || isNaN(tanggalLahir)) continue;
+
+                    const usia = calculateAge(tanggalLahir);
+                    const isValid = isAgeValid(tanggalLahir, criteria[cabang]);
+
+                    hasil.push({
+                        no: no++,
+                        nama: nama,
+                        anggota: '-',
+                        tanggalLahir: formatDate(tanggalLahir),
+                        umur: `${usia.years}-${String(usia.months).padStart(2, '0')}-${String(usia.days).padStart(2, '0')}`,
+                        cabang: row[2].toString().trim(),
+                        valid: isValid,
+                        type: 'individu'
+                    });
+                }
+            }
+
+            displayExcelResults(hasil);
+        }
+
+        function displayExcelResults(hasil) {
+            const tableContainer = document.getElementById('tableContainer');
+            const tbody = document.getElementById('tableBody');
+            const resultExcel = document.getElementById('resultExcel');
+            const resultExcelDetails = document.getElementById('resultExcelDetails');
+
+            let validCount = hasil.filter(h => h.valid).length;
+            let invalidCount = hasil.length - validCount;
+
+            tbody.innerHTML = '';
+            hasil.forEach(item => {
+                const row = `<tr>
+                    <td>${item.no}</td>
+                    <td><strong>${item.nama}</strong>${item.type === 'regu' ? ' (Regu)' : ''}</td>
+                    <td>${item.anggota}</td>
+                    <td>${item.tanggalLahir}</td>
+                    <td>${item.umur}</td>
+                    <td>${item.cabang}</td>
+                    <td><span class="status ${item.valid ? 'valid' : 'invalid'}">${item.valid ? '✓ LOLOS' : '✗ TIDAK'}</span></td>
+                </tr>`;
+                tbody.insertAdjacentHTML('beforeend', row);
+            });
+
+            resultExcel.className = 'result';
+            resultExcelDetails.innerHTML = `
+                <strong>Total: ${hasil.length} peserta/regu</strong><br>
+                Lolos: ${validCount} | Tidak Lolos: ${invalidCount}
+            `;
+
+            tableContainer.style.display = 'block';
+        }
+
+        function switchTab(tab) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+            document.getElementById(tab).classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
