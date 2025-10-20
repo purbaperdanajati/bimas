@@ -1,4 +1,4 @@
-const scriptURL = "https://script.google.com/macros/s/AKfycbyu2gOnsWRuqrugz9bdF5BaaJ9pwQ4RaRLBOa32RWo4HJ57I9ihCArfLz64Eby7sqHnYQ/exec"; // URL Web App kamu
+const scriptURL = "https://script.google.com/macros/s/AKfycbxu6LmJoHqJbuMRGgi3vRA7VQcuDbtOu4pvdwZYmFLa9yqdxduan3M_mzAYZJ7FHW_Nfg/exec"; // URL Web App kamu
 
 document.getElementById("dataForm").addEventListener("submit", async (e) => {
   e.preventDefault();
